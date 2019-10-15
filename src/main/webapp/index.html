@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- The main page of the application-->
+<html>
+    <head>
+        <title>Pizza Ordering Application</title>
+        <!--JavaScript for backend validation-->
+        <script>
+            //after the content is loaded
+            window.addEventListener("DOMContentLoaded", function () {
+
+                //getting all the error messages
+                var errorPhn = document.getElementById("errorPhn");
+                var errorName = document.getElementById("errorName");
+
+                //getting all the fields from the form for validation
+                var name = document.getElementById("name");
+                var phone = document.getElementById("phone");
+                
+                //the start order button
+                var startOrder = document.getElementById("startOrder");
+
+                //when the start order button is clicked
+                startOrder.addEventListener("click", function (e) {
+
+                    // if the name value is not filled error message is displayed
+                    // and it prevents the page from going to start order servlet 
+                    if (name.value === ("")) {
+                        errorName.innerHTML = "Please enter this information";
+                        errorName.style.display = "inline-block";
+                        e.preventDefault();
+                    } else if (!name.value.match(/^[A-Za-z]+$/)) {
+                        //if the name contains anything except letters then
+                        //the following error message is shown
+                        errorName.innerHTML = "Name should only consists of letters";
+                        errorName.style.display = "inline-block";
+                        e.preventDefault();
+                    } else {
+                        // if its is filled then the error message disappears
+                        errorName.style.display = "none";
+                    }
+
+
+
+                    // validating for the phone number field
+                    if (phone.value === ("")) {
+                        errorPhn.innerHTML = "Please enter this information";
+                        errorPhn.style.display = "inline-block";
+                        e.preventDefault();
+                    } else if (!phone.value.match(/[0-9]{3}[\s][0-9]{3}[-][0-9]{4}/gm)) {
+                        //if the phone number does not matches the above pattern then 
+                        // it throws the following error message
+                        errorPhn.innerHTML = "Match the format: 123 456-7890";
+                        errorPhn.style.display = "inline-block";
+                        e.preventDefault();
+                    } else {
+                        errorPhn.style.display = "none";
+                    }
+
+
+
+                });
+
+            });
+        </script>
+        <link rel="stylesheet" href="CSS/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Paprika' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Salsa' rel='stylesheet'>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Welcome to my Pizza Ordering App!</h1>
+        <div class="form">
+            <form action="StartOrder.do" method="GET">
+                
+                <!-- the name field-->
+                Name: <br><input type="text" id="name" name="name" required=""> <br>
+                <div id="errorName"></div><br>
+
+                <!-- the phone field-->
+                Phone: <br> <input type="text" name="phone" id="phone"
+                                   pattern="[0-9]{3}\s[0-9]{3}-[0-9]{4}"
+                                   title="Format:123 456-7890" required> <br>
+                <div id ="errorPhn"></div><br>
+
+                <input id="startOrder" type="submit" value="START ORDER">
+            </form>
+        </div>
+    </body>
+</html>

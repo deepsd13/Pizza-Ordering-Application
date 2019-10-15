@@ -1,0 +1,86 @@
+/* A general css file for every page*/
+
+/* styling the background of the body*/
+body { 
+    background-image: url("../assets/bg.jpg");
+    background-size: 110%;
+}
+/*styling the every h1 element*/
+h1{
+    width:100%;
+    color:white;
+    text-align: center; 
+    border-radius: 5px;
+    font-family: 'Paprika';
+    background-color:#1B1B1B;
+}
+/* styling the form */
+.form{
+    width: 45%; 
+    display:inline-block;
+    margin-left: 130px;
+    margin-top: 70px;
+    border-radius: 5px;
+    color:white;
+    padding: 20px;
+    font-family: 'Salsa';    
+    background-color:#1B1B1B;
+
+}
+
+/*styling the input of type text*/ 
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Salsa';
+    font-size: 15px;
+}
+
+/* styling the button*/
+input[type=submit] {
+    width: 100%;
+    font-size: 20px;
+    font-family:'Salsa';
+    background-color: orangered;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+/* adding hovering effects to buttons*/
+input[type=submit]:hover,a:hover {
+    background-color: red;
+}
+
+/* styling the drop down list*/
+.ddl{
+    width:30%;
+    border-radius: 4px;
+    font-family:'Salsa';
+    font-size: 15px;
+}
+
+/* the error messages in index page*/ 
+#errorName,#errorPhn{
+    display:none;
+    font-family: 'Salsa';
+    color:red;
+    font-style: italic;
+
+}
+/*adding border to the order's details in display order*/
+#orderDetails{
+    border: 1px solid white;
+    padding: 0px 10px;
+    padding-bottom:10px;
+    display: inline-block;
+
+}

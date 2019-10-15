@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!-- servlet config for StartOrder page-->
+    <servlet>
+        <servlet-name>PizzaOrderingApp</servlet-name>
+        <servlet-class>com.deepshah.deep_shah_a1.servlets.StartOrder</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>PizzaOrderingApp</servlet-name>
+        <url-pattern>/StartOrder.do</url-pattern>
+    </servlet-mapping>
+    
+    <!-- servlet config for placeOrder page-->
+    <servlet>
+        <servlet-name>PlaceOrder</servlet-name>
+        <servlet-class>com.deepshah.deep_shah_a1.servlets.PlaceOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaceOrder</servlet-name>
+        <url-pattern>/PlaceOrder.do</url-pattern>
+    </servlet-mapping>
+    
+    <!-- adding the error page for error 500-->
+    <error-page>
+        <error-code>500</error-code>            
+        <location>/errors/serverError.jsp</location>
+    </error-page>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
